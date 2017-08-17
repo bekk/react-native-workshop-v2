@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="http://bekk.github.io/react-native-workshop/slides/remark-bekk/dist/bekk.css">
+    <title>Title</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <textarea id="source">
+
+class: front-page
+
+# React Native
+## Workshop
+
+Fagdag
+
+01.09.2017
+---
+class: agenda
+
+# Agenda
+
+* Intro
+* Syntax og styling
+* Navigasjon
+* Kart
+* Code push
+
+---
+#Crossplatform navigation
+
+## Samme kode skal fungere til både iOS og Android
+## Stylingen bør være forskjellig på iOS og Android for å få "Native app feeling"
+
+---
+#Reactnavigation
+
+* StackNavigation
+* TabNavigation
+* DrawerNavigation
+---
+#StackNavigation
+
+##Plasserer sidene i en stack og pusher/popper når du navigerer fra/til en annen side.
+
+##Må vite hvilken sider/komponenter skal eksisterer i appen på forhånd.
+```
+const Navigation = StackNavigator({
+  Key1: { screen: Komponent1},
+  Key2: { screen: Komponent2},
+  Key3: { screen: Komponent 3}
+});
+```
+
+---
+#StackNavigation
+
+##StackNavigator legges på øverste nivå
+```
+class Main extends React.Component {
+  render(){
+    return(
+      <Provider store={todoStore}>
+        <Navigation/>
+      </Provider>
+  )}}
+```
+
+##Eksponerte funksjoner og state kan nåes via:
+```
+this.props.navigation
+```
+---
+#StackNavigation
+##Views kan tilpasse navigasjonsbaren via static navigationOptions:
+```
+class Home extends React.Component {
+  static navigationOptions = ({ navigation }) => {
+      return({
+        title: 'Home'
+        .
+        .
+      })
+    };
+  .
+  .
+  .
+```
+e
+##static navigationOptions har IKKE tilgang til viewet sitt state eller props direkte.
+
+
+---
+#Oppgave 1
+
+##Todos skal være klikkbare og lede til en ny side, hvor todo-name skal være tittelen på siden i navigasjonsbaren.
+---
+#Løsningsforslag
+
+
+
+
+
+    </textarea>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
