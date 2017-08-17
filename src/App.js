@@ -1,24 +1,26 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { Provider } from 'react-redux';
+import { createStore, combineReducers } from 'redux'
+
+import Start from './Start';
+import startReducer from './reducers/start-reducer';
+
+const todoApp = combineReducers({
+  start: startReducer
+});
+
+const store = createStore(todoApp);
 
 class App extends Component {
 
   render() {
 
     return (
-      <View style={styles.container}>
-        <Text>React Native Workshop</Text>
-      </View>
+      <Provider store={store}>
+        <Start />
+      </Provider>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
-  }
-});
 
 export default App;
