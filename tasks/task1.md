@@ -30,9 +30,9 @@ React Native bruker ikke CSS til å style elementene. Man definerer derimot styl
 }
 ```
 
-Styling arves (cascading) ikke.
+Styling arves ikke. (cascading)
 
-```
+```javascript
 <View style={{ color: 'red' }} >
   <Text>Jeg er ikke rød</Text>
 </View>
