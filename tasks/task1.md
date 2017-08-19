@@ -1,5 +1,69 @@
 # Styling
 
+## Målet med oppgaven
+Målet med denne oppgaven er at du skal bli kjent med styling og layout i React Native.
+
+## Oppsett
+Start prosjektet slik som tidligere med `react-native run-ios`
+
+## Definere styling
+React Native bruker ikke CSS til å style elementene. Man definerer derimot stylingen med javascript-objekter, som er inspirert av CSS.
+
+```css
+.element {
+  background-color: red;
+  width: 20px;
+  border: 1px solid black;
+}
+```
+
+...blir til
+
+```javascript
+{
+  element: {
+    backgroundColor: 'red',
+    width: 20,
+    borderColor: 'black',
+    borderWidth: 1
+  }
+}
+```
+
+Styling arves (cascading) ikke.
+
+```
+<View style={{ color: 'red' }} >
+  <Text>Jeg er ikke rød</Text>
+</View>
+```
+
+Men du kan kombinere styles.
+```javascript
+<View>
+  <Text style={ [styles.defaultText, styles.red, styles.centered] }>Jeg er rød og sentrert</Text>
+</View>
+
+// ...
+
+const styles = StyleSheet.create({
+  defaultText: {
+    fontSize: 12,
+  },
+  red: {
+    color: 'orange',
+  },
+  centered: {
+    textAlign: 'center',
+  },
+})
+```
+## Layout
+React Native bruker `Flexbox` til å definere hvordan komponenter skal forholde seg til hverandre. `Flexbox` fungerer likt i React Native som på web, med noen få unntak. `flexDirection` sin default-verdi er `column` istedenfor `row`, og `flex`paramteret støtter kun et tall.
+https://facebook.github.io/react-native/docs/flexbox.html
+
+Husk at `<View>` tilsvarer `<div>` i HTML, `<Text>` tilsvarer `<p>`, og at `<Image>` tilsvarer `<img>`.
+
 ## Din oppgave
 
 ### Del 1
@@ -11,6 +75,7 @@ Som du ser vises tekstene vertikalt, en etter en. For at det skal ligne mer på 
 
 Prøv gjerne å bytte orientering på simulatoren (`Command + høyre/venstre piltast`), og du vil se at tittelen tilpasser seg til bredden.
 
+Hvis tekstfargen på statuslinjen irriterer deg, kan du bruke `StatusBar` komponentet til å endre på den. https://facebook.github.io/react-native/docs/statusbar.html
 
 ### Del 2
 Det neste vi skal legge til er innhold etter verktøylinjen. Utvid `render` metoden med følgende komponenter.
@@ -60,7 +125,7 @@ render() {
 }
 ```
 
-### Ekstra oppgave
+### Ekstraoppgave
 Hvis de forrige oppgavene var for enkle kan du utvide `DogPost` slik at vi kan ha nestede komponenter med forskjellige bakgrunnsfarge slik som på bildet under.
 
 <img src="../screenshots/screenshot_4.png" width="300">
