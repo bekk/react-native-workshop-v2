@@ -1,6 +1,24 @@
-import React from 'react';
-import { AppRegistry } from 'react-native';
+import React, { Component } from 'react'
+import { AppRegistry, View, StyleSheet, Text } from 'react-native'
 
-import App from './src/App';
+class ReactNativeWorkshop extends Component{
+    render() {
+        return (
+          <View style={styles.container}>
+            <Text>
+              Hello, workshop!
+            </Text>
+          </View>
+        );
+    }
+}
 
-AppRegistry.registerComponent('ReactNativeWorkshop', () => App);
+var styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  }
+});
+
+AppRegistry.registerComponent('ReactNativeWorkshop', () => ReactNativeWorkshop);
