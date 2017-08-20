@@ -5,6 +5,63 @@ Tilstandsløse applikasjoner er kjedelige. I denne oppgaven skal vi lage en appl
 ## Oppsett
 Vi starter der vi sluttet i forrige oppgave, innholdet i `ìndex.ios.js` og `src/DogPost.js` er det samme som fasiten for forrige oppgave. Start prosjektet slik som tidligere med `react-native run-ios`
 
+## Props
+De fleste komponenter kan bli tilpasset når de lages. Disse parameterene som spesifiserer tilpasningen kalles `props`.
+I eksempelet under sendes teksten `name` med til `Greeting` som en prop. Man kan refere til `props` med å skrive `this.props`, slik som i eksempelet under.  
+
+```javascript
+class Greeting extends Component {
+  render() {
+    return (
+      <Text>Hello {this.props.name}!</Text>
+    );
+  }
+}
+
+export default class LotsOfGreetings extends Component {
+  render() {
+    return (
+      <View style={{alignItems: 'center'}}>
+        <Greeting name='Sigurd' />
+        <Greeting name='Svein' />
+        <Greeting name='Lap' />
+        <Greeting name='Nemanja' />
+      </View>
+    );
+  }
+}
+```
+
+## State
+Det er to typer data som påvirker et komponent i React native: `props` og `state`. `props` er satt av foreldre komponentet og har samme verdi i hele levetiden til et komponent. For data som skal endre seg bruker man `state`.
+
+Du burde initialisere `state` i konstruktøren (`constructor`), og endre den med å kalle på `setState()`. I reele applikasjoner ønsker man typisk å oppdatere state hvis man får ny data fra serveren eller som en konsekvens av bruker interaksjon som i eksempelet under. Her oppdaterer man state når teksten i `TextInput` endrer seg, teksten som ligger i state blir til en hver tid vist frem i et `Text` komponent.
+
+```javascript
+export default class DisplayTextInput extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {text: ''};
+  }
+
+  render() {
+    return (
+      <View style={{padding: 10}}>
+        <TextInput
+          style={{height: 40}}
+          placeholder="Skriv her.."
+          onChangeText={(text) => this.setState({text})}
+        />
+        <Text>
+          { this.state.text }
+        </Text>
+      </View>
+    );
+  }
+}
+```
+
+
 ## Din oppgave
 
 ### Del 1
