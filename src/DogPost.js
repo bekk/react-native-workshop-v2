@@ -7,11 +7,12 @@ const randomImageSource = () => images[Math.floor(Math.random()*images.length)]
 class DogPost extends Component {
   render() {
     return (
-      <View style={ styles.media }>
+      <View style={ [ styles.media, this.props.style ] }>
         <Image style={ styles.figure } source={randomImageSource()}/>
         <View style={ styles.body }>
           <Text style={ styles.title }>Barking Title</Text>
           <Text style={ styles.text }>Cage run fast kitten dinnertime ball run foot park fleas throw house train licks stick dinnertime window. Good Boy park lazy dog walk kibble Scooby snacks licks canary.</Text>
+          { this.props.children }
         </View>
       </View>
     );
@@ -19,6 +20,30 @@ class DogPost extends Component {
 }
 
 const styles = StyleSheet.create({
+  media: {
+    margin: 5,
+    padding: 10,
+    backgroundColor: '#ececec',
+    alignItems: 'flex-start',
+    flexDirection: 'row'
+  },
+  figure: {
+    borderRadius: 25,
+    marginRight: 10,
+    width: 50,
+    height: 50,
+  },
+  body: {
+    flex: 1,
+    flexDirection: 'column',
+  },
+  text: {
+    marginBottom: 10,
+  },
+  title: {
+    fontWeight: 'bold',
+    marginBottom: 5,
+  }
 })
 
 export default DogPost

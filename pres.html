@@ -28,6 +28,113 @@ class: agenda
 * Code push
 
 ---
+# Ingen CSS, kun JavaScript
+```css
+.element {
+  background-color: red;
+  width: 20px;
+  border: 1px solid black;
+}
+```
+
+...blir til
+--
+
+```javascript
+{
+  element: {
+    backgroundColor: 'red',
+    width: 20,
+    borderColor: 'black',
+    borderWidth: 1
+  }
+}
+```
+---
+# Vent... ingen CSS?
+--
+
+## Inspirert av CSS
+--
+
+## ...men med noen unntak
+--
+
+* camelCasing
+```
+background-color = backgroundColor
+```
+--
+
+* ingen units
+```
+margin: 20px = margin: 20
+```
+--
+
+* gyldig javascript
+```
+text-align: center = textAlign: 'center'
+```
+---
+# StyleSheet.create
+## Man setter styling via style-prop
+```plain
+<Text style={{ color: 'red' }}>Jeg er rød</Text>
+```
+--
+
+## Kan bli uoversiktlig i store komponenter
+--
+
+```plain
+import { StyleSheet } from 'react-native'
+...
+<Text style={{ styles.red }}>Jeg er rød</Text>
+...
+
+const styles = StyleSheet.create({
+  red: {
+    color: 'red'
+  }
+})
+```
+---
+class: cols two
+# Cascading
+.col[
+Styling arves ikke.
+```plain
+<View style={{ color: 'red' }} >
+  <Text>Jeg er ikke rød</Text>
+</View>
+```
+]
+.col[
+  .center[![Right-aligned image](https://images-na.ssl-images-amazon.com/images/G/01/img15/pet-products/small-tiles/23695_pets_vertical_store_dogs_small_tile_8._CB312176604_.jpg)]
+]
+---
+# Cascading
+
+Men du kan kombinere styles.
+```plain
+<View>
+  <Text style={ [styles.red, styles.centered] }>
+    Jeg er rød og sentrert
+  </Text>
+</View>
+...
+const styles = StyleSheet.create({
+  red: {
+    color: 'orange',
+  },
+  centered: {
+    textAlign: 'center',
+  },
+})
+```
+
+---
 #Crossplatform navigation
 
 ## Samme kode skal fungere til både iOS og Android
@@ -45,11 +152,11 @@ class: agenda
 ##Plasserer sidene i en stack og pusher/popper når du navigerer fra/til en annen side.
 
 ##Må vite hvilken sider/komponenter skal eksisterer i appen på forhånd.
-```
+```javascript
 const Navigation = StackNavigator({
   Key1: { screen: Komponent1},
   Key2: { screen: Komponent2},
-  Key3: { screen: Komponent 3}
+  Key3: { screen: Komponent3}
 });
 ```
 
@@ -74,7 +181,7 @@ this.props.navigation
 ---
 #StackNavigation
 ##Views kan tilpasse navigasjonsbaren via static navigationOptions:
-```
+```javascript
 class Home extends React.Component {
   static navigationOptions = ({ navigation }) => {
       return({
@@ -106,7 +213,12 @@ e
     <script src="https://remarkjs.com/downloads/remark-latest.min.js">
     </script>
     <script>
-      var slideshow = remark.create();
+      var slideshow = remark.create(
+        {
+          highlightLanguage: 'javascript',
+          highlightStyle: 'solarized-dark',
+        }
+      );
     </script>
   </body>
 </html>

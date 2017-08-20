@@ -7,11 +7,12 @@ const randomImageSource = () => images[Math.floor(Math.random()*images.length)]
 class DogPost extends Component {
   render() {
     return (
-      <View style={ styles.media }>
+      <View style={ [ styles.media, this.props.style ] }>
         <Image style={ styles.figure } source={randomImageSource()}/>
         <View style={ styles.body }>
-          <Text style={ styles.title }>Barking Title</Text>
-          <Text style={ styles.text }>Cage run fast kitten dinnertime ball run foot park fleas throw house train licks stick dinnertime window. Good Boy park lazy dog walk kibble Scooby snacks licks canary.</Text>
+          <Text style={ styles.title }>{ this.props.title }</Text>
+          <Text style={ styles.text }>{ this.props.description }</Text>
+          { this.props.children }
         </View>
       </View>
     );
