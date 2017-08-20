@@ -26,9 +26,9 @@ Som du kanskje ser endrer bildet seg når man skriver inn en ny bokstav. Dette e
 ### Del 2
 Et innlegg som man kan endre teksten på er ikke veldig imponerende. Du skal derfor gjøre det mulig å lagre innholdet av `TextInput` komponentene til state, slik at man kan vise flere innlegg. Start med å legge til en knapp. Her er det fint å bruke `Button`, et av React Native sine innebygde komponenter. http://facebook.github.io/react-native/releases/0.47/docs/button.html#button
 
-<img src="../screenshots/screenshot_2.png" width="300">
-
 Når man trykker på knappen (`onPress`-prop) skal et objekt som inneholder `this.state.title` og `this.state.description` legges til i en liste (i `state`) over innlegg som har blitt lagret. `this.state.title` og `this.state.description` skal også nullstilles, slik at man enkelt kan fylle inn nye verdier.
+
+<img src="../screenshots/screenshot_2.png" width="300">
 
 Antall innlegg varierer avhengig av hvor mange innlegg man har lagret. For å dynamisk tilpasse visningen av innlegg (`DogPost`), skal vi benytte et av de innebygde komponentene. `FlatList` brukes til å vise en liste av lignende data. `FlatList` kan brukes til å vise lister av data som varierer i lengde. Komponentet har hovedsaklig to `props` vi trenger å bry oss om. `data` forventer en liste av objekter som inneholder informasjonen skal vises frem. `renderItem` tar et av elementene i listen og spesifereres hvordan det skal rendres.
 https://facebook.github.io/react-native/docs/flatlist.html
