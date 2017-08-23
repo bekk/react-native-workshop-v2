@@ -1,26 +1,30 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { createStore } from 'redux'
 import { Provider } from 'react-redux';
-import { createStore, combineReducers } from 'redux'
+import { StackNavigator } from 'react-navigation';
 
-import Start from './Start';
-import startReducer from './reducers/start-reducer';
+import TodoReducer from './reducers/TodoReducer';
+import TodoList from './components/TodoList.js';
 
-const todoApp = combineReducers({
-  start: startReducer
+import {
+  AppRegistry,
+} from 'react-native';
+
+
+let todoStore = createStore(TodoReducer)
+
+const Navigation = StackNavigator({
+  Home: { screen: TodoList }
 });
 
-const store = createStore(todoApp);
-
-class App extends Component {
-
-  render() {
-
-    return (
-      <Provider store={store}>
-        <Start />
+class Main extends React.Component {
+  render(){
+    return(
+      <Provider store={todoStore}>
+        <Navigation/>
       </Provider>
-    );
+    )
   }
 }
 
-export default App;
+AppRegistry.registerComponent('ReactNativeWorkshop', () => Main);
