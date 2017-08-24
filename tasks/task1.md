@@ -125,6 +125,8 @@ render() {
 }
 ```
 
+Når du er ferdig kan du enten gjøre ekstraoppgaven eller gå videre til neste tema; state (`git checkout 3-state`)
+
 ### Ekstraoppgave
 Hvis de forrige oppgavene var for enkle kan du utvide `DogPost` slik at vi kan ha nestede komponenter med forskjellige bakgrunnsfarge slik som på bildet under.
 
