@@ -81,3 +81,5 @@ React Native kommer med flere kjekke utviklingsverktøy. Du kan få en oversikt 
 
 ## Din oppgave
 Finn og fjern feilene i koden. Last inn javascript-koden på nytt (`cmd + R`) for å se om du fant den. Utforsk React Native sine utviklingsverktøy. Skru på `Live reload`og gjør noen valgfrie endringer i `ìndex.ios.js` og se effekten av de.
+
+Når du er ferdig kan du sjekke ut branchen `2-styling` (`git checkout 2-styling`) og starte på oppgavene der.
