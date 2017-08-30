@@ -258,6 +258,82 @@ static navigationOptions = ({ navigation }) => {
 
 ##Oppgave beskrivelse: https://goo.gl/qSgGeb
 
+---
+
+# Oppgave 2 - Løsningsforslag
+
+##Legg til knapp som leder til nye komponenten
+```
+class TodoListContainer extends React.Component {
+  static navigationOptions = ({ navigation }) => {
+    return({
+      title: `TodoList`,
+      headerRight: <Button title="+" onPress={()
+        => navigation.navigate('AddTodo')}/>
+      }
+    )
+  }
+  .
+  .
+```
+---
+# Oppgave 2 - Løsningsforslag
+
+## Ikke så happy når vi prøver å returnere state.params.x som ikke eksisterer.
+```
+static navigationOptions = ({ navigation }) => {
+
+  let addTodo;
+  let todoName;
+  let todoDetail;
+
+  if(navigation.state.params){
+    todoName = navigation.state.params.todoName
+    todoDetail = navigation.state.params.todoDetail;
+
+    if(navigation.state.params.addTodo){
+      addTodo = navigation.state.params.addTodo;
+    }
+  }
+
+```
+---
+# Oppgave 2 - Løsningsforslag
+## Må oppdatere navigation.param
+```
+onChangeName(name){
+  this.setState({name:name});
+  this.props.navigation.setParams({todoName:name})
+}
+
+onChangeDetail(detail){
+  this.setState({detail:detail});
+  this.props.navigation.setParams({todoDetail:detail})
+}
+```
+---
+# Oppgave 2 - Løsningsforslag
+
+## Må bruke .reset for å tvinge StackNavigator til å få Home komponenten til å kjøre gjennom react-lifecycle o.O
+
+```
+static navigationOptions = ({ navigation }) => {
+  .
+  .
+
+  return({
+    title: `Add new task`,
+    headerRight: <Button title="Done"
+      disabled={(!todoName || !todoDetail)} onPress={() =>
+        addTodo({name: todoName, detail: todoDetail},
+          navigation.dispatch(NavigationActions.reset({
+            index: 0,
+            actions: [NavigationActions.navigate({ routeName: 'Home'})]
+          }))
+    )}/>
+  })
+
+```
 
 
     </textarea>
