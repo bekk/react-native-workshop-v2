@@ -44,7 +44,7 @@ Notes we took from our troubleshooting during the setup-process on windows and O
 If you have any trouble check [this](trouble-windows-android.md)
 
 ### OSX
-1. Run `bash android/run.sh`, this checks your configuration and starts react-native
+1. Run `react-native run-android`, this checks your configuration and starts react-native
 2. Verify that the app is running in the emulator
 
 If you have any trouble check [this](trouble-osx-android.md)
