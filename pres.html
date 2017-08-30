@@ -34,11 +34,35 @@ class: agenda
 ## Stylingen bør være forskjellig på iOS og Android for å få "Native app feeling"
 
 ---
-#Reactnavigation
+#Crossplatform navigation
+
+##react-native rammeverket gav opp sin egen crossplatform navigasjonskomponent.
+
+##Anbefaler heller community løsninger hvor den foretrukken er React Navigation
+
+`This guide covers the various navigation components available in React Native.
+If you are just getting started with navigation, you will probably want to use React Navigation.
+`
+???
+react-native hadde sin egen cross platform navigasjonsløsning. Men den var nokså buggy og ofte inkonsistent i forhold til det som var doukemtert.
+Flere alternativer dukket opp som en respons og tidligere i år, gav react-native opp sin egen løsning og refererte heller til community løsninger.
+
+---
+#React Navigation
+
+##Veldig nytt, startet på slutten av 2016 og er fremdeles i beta
 
 * StackNavigation
 * TabNavigation
 * DrawerNavigation
+
+???
+Forsatt veldig nytt, starter på slutten av 2016 og ble veldig populær.
+De har forsatt ikke sendt ut en stable versjon.
+
+Hitil så har de lagd 3 forskjellige type navigation. StackNavigator, TabNavigation, DrawerNavigation.
+Om du har jobba med native android kode, så ringer det kanskje en bjelle.
+
 ---
 #StackNavigation
 
@@ -53,10 +77,23 @@ const Navigation = StackNavigator({
 });
 ```
 
+```
+navigate('Key1')
+```
+
+???
+I dag så skal vi kun se på StackNavigator. Det er hovedsaklig en sånn løsning iOS apper bruker for navigasjon,
+og en stor andel av android apper.
+
+StackNavigator trenger å vite på forhånd hvilken komponenter skal være tilgjengelig.
+Key er verdien som skal brukes når man ønsker å navigerer til gitte komponent.
+Det er mulig å bruke stackNavigation på nett, da benytter man path istedenfor screen.
+
+
 ---
 #StackNavigation
 
-##StackNavigator legges på øverste nivå
+##Legge til i render metoden til main-fila.
 ```
 class Main extends React.Component {
   render(){
@@ -71,6 +108,12 @@ class Main extends React.Component {
 ```
 this.props.navigation
 ```
+
+???
+Alle komponenter som har blitt lagt til StackNavigation har tilgang til
+this.props.navigation som da inneholder funksjon for a navigere til ny komponenter,
+go tilbake til forrige komponent, legge til og hente ut objekt som er sendt fra en komponent til annen komponent.
+
 ---
 #StackNavigation
 ##Views kan tilpasse navigasjonsbaren via static navigationOptions:
@@ -87,17 +130,114 @@ class Home extends React.Component {
   .
   .
 ```
-e
-##static navigationOptions har IKKE tilgang til viewet sitt state eller props direkte.
+???
+Det som skiller seg ut er at man må legge til funksjonen static navigationOptions for å tilpasse navigasjonsbaren.
 
+##static navigationOptions har IKKE tilgang til viewet sitt state eller props direkte.
 
 ---
 #Oppgave 1
 
 ##Todos skal være klikkbare og lede til en ny side, hvor todo-name skal være tittelen på siden i navigasjonsbaren.
 ---
-#Løsningsforslag
+# Oppgave 1 - Løsningsforslag
 
+##Bruke navigate funksjonen som vi får fra StackNavigator via this.props.navigation
+##Sende med todo objektet som en parameter
+```
+renderRow = ({item}) => {
+  const { navigate } = this.props.navigation;
+  return(
+      <Button
+        onPress={() => navigate('TodoDetail', { todo: item })}
+        title={item.name}
+      />
+  )
+}
+```
+---
+# Oppgave 1 - Løsningsforslag
+
+## Henter ut todo objektet i static navigationOptions metoden
+## Setter navnet på navigasjonsbaren til todo.name
+
+```
+class TodoDetail extends React.Component {
+
+  static navigationOptions = ({ navigation }) => {
+    const {todo} =  navigation.state.params
+    return({
+      title: todo.name,
+    })
+  };
+  .
+  .
+}
+```
+---
+# Oppgave 1 - Løsningsforslag
+
+## Henter ut todo objektet i render metoden og bruke todo.detail
+```
+class TodoDetail extends React.Component {
+  .
+  .
+  render(){
+    const {todo} = this.props.navigation.state.params;
+    return(
+      <Text style={{padding:10}}>{todo.detail}</Text>
+    );
+  }
+}
+```
+---
+#StackNavigator
+
+##Kan legge til knapp på venstre side
+
+```
+static navigationOptions = ({ navigation }) => {
+  return({
+    headerLeft: <Button>...,
+  })
+};
+```
+
+
+##Kan også legge til knapp på høyre side
+```
+static navigationOptions = ({ navigation }) => {
+  return({
+    headerRight: <Button>...,
+  })
+};
+```
+
+#StackNavigator
+
+##static navigationOptions har IKKE tilgang til viewet sitt state eller props direkte.
+
+##Viewet må sende dette inn via setParams funksjonen
+
+```
+this.props.navigation.setParams({name:value})
+```
+
+##Kan deretter hentes ut fra navigation.state.params 
+
+```
+static navigationOptions = ({ navigation }) => {
+ navigation.state.params..
+```
+
+
+##Ekstra - Style navigasjonsbaren
+
+---
+#Oppgave 2
+
+##Legg til en knapp på navigasjonsbaren som fører til en ny side.
+##Den nye siden skal la brukerene legge til flere todos
 
 
 
