@@ -1,26 +1,34 @@
 import React, { Component } from 'react';
-import { Provider } from 'react-redux';
-import { createStore, combineReducers } from 'redux'
-
-import Start from './Start';
-import startReducer from './reducers/start-reducer';
-
-const todoApp = combineReducers({
-  start: startReducer
-});
-
-const store = createStore(todoApp);
+import { View, StyleSheet } from 'react-native';
+import MapView from 'react-native-maps';
 
 class App extends Component {
 
   render() {
 
     return (
-      <Provider store={store}>
-        <Start />
-      </Provider>
+      <View style={styles.container}>
+        <MapView
+          style={styles.map}
+          initialRegion={{
+            latitude: 59.918628,
+            longitude: 10.733737,
+            latitudeDelta: 0.01,
+            longitudeDelta: 0.01,
+          }}
+        />
+      </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    ...StyleSheet.absoluteFillObject
+  },
+  map: {
+    ...StyleSheet.absoluteFillObject
+  }
+});
 
 export default App;
