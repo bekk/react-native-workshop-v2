@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet } from 'react-native';
-import MapView from 'react-native-maps';
+import { View, Text, StyleSheet } from 'react-native';
 
 class App extends Component {
 
@@ -8,15 +7,7 @@ class App extends Component {
 
     return (
       <View style={styles.container}>
-        <MapView
-          style={styles.map}
-          initialRegion={{
-            latitude: 59.918628,
-            longitude: 10.733737,
-            latitudeDelta: 0.01,
-            longitudeDelta: 0.01,
-          }}
-        />
+        <Text>Hei og hå - du kan starte her!</Text>
       </View>
     );
   }
@@ -24,10 +15,9 @@ class App extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    ...StyleSheet.absoluteFillObject
-  },
-  map: {
-    ...StyleSheet.absoluteFillObject
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
   }
 });
 
