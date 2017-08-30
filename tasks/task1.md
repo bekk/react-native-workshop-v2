@@ -14,3 +14,4 @@ Bruke `react-native link` til å koble npm biblioteket `react-native-maps` i din
 2) Koble biblioteket til din app ved å kjøre `react-native link`
 3) Se hvilke endringer som automagisk blir gjort i din kodebase av `react-native link` ved å skrive `git status` i konsollen
 4) Opprett en `MapView`-komponent i [App.js](../src/App.js) som beskrevet i [dokumentasjonen](https://github.com/airbnb/react-native-maps) for å rendre et kart i din app
+5) Start appen med `react-native run-ios` eller `react-native run-android` (hvis du utvikler mot Android trenger du en Google Maps API key som du kan få ved å si ifra til en av oss)

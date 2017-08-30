@@ -16,7 +16,16 @@ class App extends Component {
             latitudeDelta: 0.01,
             longitudeDelta: 0.01,
           }}
-        />
+        >
+          <MapView.Marker
+            coordinate={{
+              latitude: 59.918628,
+              longitude: 10.733737
+            }}
+            title="test"
+            description="test"
+          />
+        </MapView>
       </View>
     );
   }
