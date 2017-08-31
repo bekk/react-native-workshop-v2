@@ -1,17 +1,15 @@
-# Oppsett av React Native Maps
+# Vise holdeplasser på kartet
 
-## Målet med oppgaven
+## Hensikt
 
-Bruke `react-native link` til å koble npm biblioteket `react-native-maps` i din applikasjon og vise et kart på skjermen.
+Ta i bruk Ruter APIet og visualisere data.
 
-## Intro
+## Hente ut data
 
-[react-native-maps](https://github.com/airbnb/react-native-maps) blir anbefalt å bruke for Mapview i dokumentasjonen til React Native siden de selv ikke tilbyr en komponent for kartvisning.
+Ettersom Ruter APIet bruker UTM33 format for å beskrive lokasjon på kartet, har vi inklurdert geoutils.js for å hjelpe dere konvertere fra UTM33 til long/lat og omvendt ved behov (psssst se på WorkshopXYToLatLon og WorkshopLatLonToXY). Etter at man har hentet ut dataen og lagret denne i redux storen så vil vi at dere skal visualisere denne dataen i form av markers på kartet.
 
-## Oppgave
+Som dere ser har vi allrede lagt litt til rette ved å sette opp redux etc for dere, så det vil bare være nødvendig å implementere selve kallet, lagre dette i storen og vise det i form av markører på kartet.
 
-1) Installer `react-native-maps` ved å kjøre `npm install --save react-native-maps`
-2) Koble biblioteket til din app ved å kjøre `react-native link`
-3) Se hvilke endringer som automagisk blir gjort i din kodebase av `react-native link` ved å skrive `git status` i konsollen
-4) Opprett en `MapView`-komponent i [App.js](../src/App.js) som beskrevet i [dokumentasjonen](https://github.com/airbnb/react-native-maps) for å rendre et kart i din app
-5) Start appen med `react-native run-ios` eller `react-native run-android` (hvis du utvikler mot Android trenger du en Google Maps API key som du kan få ved å si ifra til en av oss)
+Ting å huske på:
+- Oppdatere regionen med nye pins i det man beveger på seg
+- Sørge for å gjøre et nytt kall for å hente holdeplasser dit man beveger seg på kartet
