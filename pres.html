@@ -702,10 +702,11 @@ onChangeDetail(detail){
 ## Må bruke .reset for å tvinge StackNavigator til å få Home komponenten til å kjøre gjennom react-lifecycle o.O
 
 ```
+import { NavigationActions } from 'react-navigation'
+
 static navigationOptions = ({ navigation }) => {
   .
   .
-
   return({
     title: `Add new task`,
     headerRight: <Button title="Done"
@@ -717,7 +718,6 @@ static navigationOptions = ({ navigation }) => {
           }))
     )}/>
   })
-
 ```
 ---
 # Native Modules
