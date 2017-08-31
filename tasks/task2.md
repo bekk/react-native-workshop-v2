@@ -2,7 +2,15 @@
 
 ## Hensikt
 
-## Intro
+Bli kjent med APIet for geolocation i React Native.
+
+## Mock position
+
+Når man bruker mobil-emulator for utviklingen vil posisjonen man får fra geolocation-APIet være helt på jordet. Du kan mocke din egen posisjon ved å følge følgende oppskrift:
+
+iOS: https://stackoverflow.com/a/8175468
+
+Android: I Android Studio velg `Tools -> Android -> Android Device Monitor -> Emulator Control`. Velg latitude og longitude og trykk `send`.
 
 ## Oppgave
 
