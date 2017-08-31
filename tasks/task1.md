@@ -3,6 +3,8 @@
 Tilstandsløse applikasjoner er kjedelige. I denne oppgaven skal vi lage en appliasjon som faktisk gjør noe.
 
 ## Oppsett
+Start med å skifte til denne branchen. `git checkout 3-state`
+
 Vi starter der vi sluttet i forrige oppgave, innholdet i `ìndex.ios.js` og `src/DogPost.js` er det samme som fasiten for forrige oppgave. Start prosjektet slik som tidligere med `react-native run-ios`
 
 ## Props
