@@ -1,20 +1,31 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link rel="stylesheet" type="text/css" href="http://bekk.github.io/react-native-workshop/slides/remark-bekk/dist/bekk.css">
-    <title>Title</title>
-    <meta charset="utf-8">
-    <style>
-      .small-img img{
-        width: 250px;
-      }
-       .full-img img{
-        width: 100%;
-      }
-    </style>
-  </head>
-  <body>
-    <textarea id="source">
+<head>
+  <link rel="stylesheet" type="text/css"
+        href="http://bekk.github.io/react-native-workshop/slides/remark-bekk/dist/bekk.css">
+  <title>Title</title>
+  <meta charset="utf-8">
+  <style>
+    .small-img img {
+      width: 250px;
+    }
+
+    .medium-img img {
+      width: 600px;
+    }
+
+    .large-img img {
+      width: 700px;
+    }
+
+    .full-img img {
+      width: 100%;
+    }
+
+  </style>
+</head>
+<body>
+<textarea id="source">
 
 class: front-page
 
@@ -165,10 +176,10 @@ export default class LotsOfGreetings extends Component {
   render() {
     return (
       <View>
-        <Greeting name="Sigurd" />
-        <Greeting name="Svein" />
-        <Greeting name="Lap" />
-        <Greeting name="Nemanja" />
+        <Greeting name="Sigurd"/>
+        <Greeting name="Svein"/>
+        <Greeting name="Lap"/>
+        <Greeting name="Nemanja"/>
       </View>
     );
   }
@@ -253,7 +264,7 @@ text-align: center = textAlign: 'center'
 ## Man setter styling via style-prop
 ```javascript-html
 <Text style={{ color: 'red' }}>Jeg er rød</Text>
-```
+  ```
 --
 
 ## Kan bli uoversiktlig i store komponenter
@@ -277,8 +288,8 @@ Styling arves ikke.
 ```javascript-html
 <View style={{ color: 'red' }} >
   <Text>Jeg er ikke rød</Text>
-</View>
-```
+  </View>
+  ```
 
 ---
 # Cascading
@@ -310,16 +321,16 @@ render() {
   return (
     <View style={{flex: 1}}>
       <View style={{
-        flex: 1,
-        backgroundColor: 'powderblue'
+            flex: 1,
+            backgroundColor: 'powderblue'
       }}/>
       <View style={{
-        flex: 1,
-        backgroundColor: 'skyblue'
+            flex: 1,
+            backgroundColor: 'skyblue'
       }}/>
       <View style={{
-        flex: 1,
-        backgroundColor: 'steelblue'
+            flex: 1,
+            backgroundColor: 'steelblue'
       }}/>
     </View>);
 }
@@ -339,18 +350,18 @@ class: cols two
 render() {
   return (
     <View style={{
-      flex: 1,
-      flexDirection: 'row'}}>
+          flex: 1,
+          flexDirection: 'row'}}>
       <View style={{
-        width: 50, height: 50,
-        backgroundColor: 'powderblue'}} />
+            width: 50, height: 50,
+            backgroundColor: 'powderblue'}} />
       <View style={{
-        width: 50, height: 50,
-        backgroundColor: 'skyblue'}} />
+            width: 50, height: 50,
+            backgroundColor: 'skyblue'}} />
       <View style={{
-        width: 50, height: 50,
-        backgroundColor: 'steelblue'}} />
-    </View>
+            width: 50, height: 50,
+            backgroundColor: 'steelblue'}} />
+  </View>
   );
 }
 ```
@@ -369,21 +380,21 @@ class: cols two
 render() {
   return (
     <View style={{
-      flex: 1,
-      flexDirection: 'column',
+          flex: 1,
+          flexDirection: 'column',
       justifyContent: 'space-between',
     }}>
       <View style={{
-        width: 50, height: 50,
-        backgroundColor: 'powderblue'}} />
+            width: 50, height: 50,
+            backgroundColor: 'powderblue'}} />
       <View style={{
-        width: 50, height: 50,
-        backgroundColor: 'skyblue'}} />
+            width: 50, height: 50,
+            backgroundColor: 'skyblue'}} />
       <View style={{
-        width: 50, height: 50,
-        backgroundColor: 'steelblue'}} />
-    </View>
-)}
+            width: 50, height: 50,
+            backgroundColor: 'steelblue'}} />
+  </View>
+  )}
 ```
 ]
 .col[
@@ -399,20 +410,20 @@ class: cols two
 render() {
   return (
     <View style={{
-      flex: 1,
-      justifyContent: 'center',
+          flex: 1,
+          justifyContent: 'center',
       alignItems: 'center',
     }}>
       <View style={{
-        width: 50, height: 50,
-        backgroundColor: 'powderblue'}} />
+            width: 50, height: 50,
+            backgroundColor: 'powderblue'}} />
       <View style={{
-        width: 50, height: 50,
-        backgroundColor: 'skyblue'}} />
+            width: 50, height: 50,
+            backgroundColor: 'skyblue'}} />
       <View style={{
-        width: 50, height: 50,
-        backgroundColor: 'steelblue'}} />
-    </View>
+            width: 50, height: 50,
+            backgroundColor: 'steelblue'}} />
+  </View>
   )}
 ```
 ]
@@ -727,7 +738,7 @@ static navigationOptions = ({ navigation }) => {
   return({
     title: `Add new task`,
     headerRight: <Button title="Done"
-      disabled={(!todoName || !todoDetail)} onPress={() =>
+                         disabled={(!todoName || !todoDetail)} onPress={() =>
         addTodo({name: todoName, detail: todoDetail},
           navigation.dispatch(NavigationActions.reset({
             index: 0,
@@ -737,22 +748,49 @@ static navigationOptions = ({ navigation }) => {
   })
 
 ```
+---
+# Native Modules
+--
 
+* Ikke all Native funksjonalitet kommer ut av boksen i React Native
+--
 
+* Native Modules brukes for å kommunisere mellom JavaScript og Native kode
+--
 
+* Kommunikasjon mellom JavaScript og Native kode gjøres over det man kaller en Bro
+
+---
+# React Native Bridge
+
+.large-img[![](./images/bridge_arkitektur.jpeg)]
+
+---
+# react-native-maps
+
+.medium-img[![](./images/react-native-maps.png)]
+
+---
+# Oppgaver
+
+```
+git checkout 5-maps-setup
+```
+
+## Oppgavetekster ligger under /tasks, løsningsforslag under /solutions
 
 
     </textarea>
-    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
-    </script>
-    <script>
-      var slideshow = remark.create(
-        {
-          ratio: '16:9',
-          highlightLanguage: 'javascript',
-          highlightStyle: 'solarized-dark',
-        }
-      );
-    </script>
-  </body>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js">
+</script>
+<script>
+  var slideshow = remark.create(
+    {
+      ratio: '16:9',
+      highlightLanguage: 'javascript',
+      highlightStyle: 'solarized-dark',
+    }
+  );
+</script>
+</body>
 </html>
