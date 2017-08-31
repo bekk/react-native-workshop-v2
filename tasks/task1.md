@@ -29,4 +29,5 @@ Få prosjektet til å kjøre i iOS simulatoren.
 <img src="../screenshots/screenshot_1.png" width="300">
 
 Hvis du ser skjermbildet over, gratulerer! Du kan nå gå videre til oppgave 2.
+
 https://github.com/bekk/react-native-workshop-v2/blob/1-intro/tasks/task2.md
