@@ -4,7 +4,9 @@
 Målet med denne oppgaven er at du skal bli kjent med styling og layout i React Native.
 
 ## Oppsett
-Start prosjektet slik som tidligere med `react-native run-ios`
+Start med å skifte til denne branchen. `git checkout 2-styling`
+
+Start deretter prosjektet slik som tidligere med `react-native run-ios`
 
 ## Definere styling
 React Native bruker ikke CSS til å style elementene. Man definerer derimot stylingen med javascript-objekter, som er inspirert av CSS.
@@ -126,6 +128,8 @@ render() {
 ```
 
 Når du er ferdig kan du enten gjøre ekstraoppgaven eller gå videre til neste tema; state (`git checkout 3-state`)
+
+https://github.com/bekk/react-native-workshop-v2/blob/3-state/tasks/task1.md
 
 ### Ekstraoppgave
 Hvis de forrige oppgavene var for enkle kan du utvide `DogPost` slik at vi kan ha nestede komponenter med forskjellige bakgrunnsfarge slik som på bildet under.
