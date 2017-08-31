@@ -487,7 +487,7 @@ Om du har jobba med native android kode, så ringer det kanskje en bjelle.
 const Navigation = StackNavigator({
   Key1: { screen: Komponent1},
   Key2: { screen: Komponent2},
-  Key3: { screen: Komponent 3}
+  Key3: { screen: Komponent3}
 });
 ```
 
@@ -527,6 +527,7 @@ this.props.navigation.navigate('Key1')
 
 ##Pop
 ```
+const { goBack } = this.props.navigation;
 goBack()
 goBack('Key2') //Go back to the component that navigated to key2 o.O
 ```
