@@ -49,36 +49,26 @@ class: agenda
 # React Native
 
 * Samme design som React
---
 
 * Native komponenter istedenfor web komponenter
---
 
 * Mye likt
---
 
   * JSX
---
 
   * Komponenter
---
 
   * state
---
 
   * props
---
 
 * ..og en del nytt
 ---
 # Hvordan fungerer det
 Samme grafiske byggesteiner som iOS og Android
---
 
 
 ...satt sammen med React og JavaScript
---
-
 
 .center[![Right-aligned image](./images/native_component.jpg)]
 
@@ -113,23 +103,16 @@ export default class HelloWorldApp extends Component {
 AppRegistry.registerComponent("HelloWorldProject",
   () => HelloWorldApp);
 ```
---
-
 * `index.ios.js`
 * `index.android.js`
 ---
 # Komponenter
 Komponenter lar deg splitte brukergrensesnittet i uavhengige, gjenbrukbare biter.
---
-
 
 Alt du ser på skjermen er et eller annet komponent. Enten et..
---
 
 * ..komponent du har laget selv
 * ..innebygd komponent
---
-
 
 Må inneholde en `render`-metode.
 
@@ -149,16 +132,12 @@ Utfyllende oversikt: https://facebook.github.io/react-native/docs/components-and
 # Tilpasse komponenter
 
 Det er to typer data som påvirker et komponent i React native: `props` og `state`
---
-
 
 `props`
   * Satt av foreldre komponentet
-  * Samme verdi gjennom hele levetiden
---
-
 
 `state`
+  * Satt av seg selv
   * Brukes til data som forandrer seg
 ---
 # props
@@ -219,7 +198,6 @@ export default class DisplayTextInput extends Component {
 ```
 
 ...blir til
---
 
 ```javascript-html
 {
@@ -233,26 +211,20 @@ export default class DisplayTextInput extends Component {
 ```
 ---
 # Vent... ingen CSS?
---
 
 Inspirert av CSS
---
-
 
 ...men med noen unntak
---
 
 * camel case
 ```html
 background-color = backgroundColor
 ```
---
 
 * ingen units
 ```html
 margin: 20px = margin: 20
 ```
---
 
 * stringer
 ```html
@@ -264,10 +236,9 @@ text-align: center = textAlign: 'center'
 ```javascript-html
 <Text style={{ color: 'red' }}>Jeg er rød</Text>
   ```
---
 
 ## Kan bli uoversiktlig i store komponenter
---
+
 
 ```javascript-html
 import { StyleSheet } from "react-native"
