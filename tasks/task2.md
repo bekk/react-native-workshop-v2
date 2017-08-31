@@ -13,19 +13,19 @@ export const addTodo = (todo) => {
 }
 ```
 
-#Din oppgaven
+# Din oppgaven
 
-##Del 1
+## Del 1
 Lag en ny komponent som viser teksten "Hello new Todo". Kall den gjerne AddTodo (hint, hint).
 Legg til en knapp på navigasjonsbaren som skal lede til denne komponenten.
 
 
-##Del 2
+## Del 2
 Endre innholdet i AddTodo til 2 tekstfelter, kalt name og detail.
 
-##Del 3
+## Del 3
 Legg til en ny knapp i navigasjonsbaren i AddTodo. Når en bruker trykker på denne så skal en ny todo opprettes basert på innholdet
 i tekstefeltene. Denne knappen burde kun være aktiv når begge tekstfeltene er fylt ut.
 
-##Extra
-Styling navigasjonsbaren
+## Extra
+style navigasjonsbaren

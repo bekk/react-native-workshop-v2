@@ -15,19 +15,19 @@ function initState(){
 }
 ```
 
-#Din oppgaven
+# Din oppgaven
 
-##Del 1
+## Del 1
 Lag en ny komponent som viser teksten "Hello Todo". Kall den gjerne TodoDetail (hint, hint).
 Når en bruker trykker på en todo på hjemmeskjermen så skal de sendes til denne kompononenten.
 
 
-##Del 2
+## Del 2
 Bytt ut teksten "Hello Todo" med teksten som ligger inne på todo.detail  
 
 
-##Del 3
+## Del 3
 Vis teksten fra todo.name i navigasjonsbaren.
 
-##Extra
-Styling navigasjonsbaren
+## Extra
+style navigasjonsbaren
