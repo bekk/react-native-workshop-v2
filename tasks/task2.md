@@ -20,6 +20,25 @@ Lag en ny komponent som viser teksten "Hello new Todo". Kall den gjerne AddTodo 
 Legg til en knapp på navigasjonsbaren som skal lede til denne komponenten.
 
 
+## For å legge til todoen til redux-store så kan du bruke følgende kodesnutt:
+```
+
+const AddTodoConnect = connect(
+  null,
+  mapDispatchToProps
+)(AddTodo)
+
+const Navigation = StackNavigator({
+  Home: { screen: TodoList},
+  TodoDetail: { screen: TodoDetail},
+  AddTodo: { screen: AddTodoConnect},
+```
+
+## Dette vil gi AddToDo komponenten muligheter til å lagre Todoen via:
+```
+this.props.onAddTodo({name: todoName, detail: todoDetail})
+```
+
 ## Del 2
 Endre innholdet i AddTodo til 2 tekstfelter, kalt name og detail.
 
