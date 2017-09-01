@@ -22,6 +22,13 @@ Legg til en knapp på navigasjonsbaren som skal lede til denne komponenten.
 
 ## For å legge til todoen til redux-store så kan du bruke følgende kodesnutt:
 ```
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onAddTodo: (todo) => {
+      dispatch(addTodo(todo))
+    }
+  }
+}
 
 const AddTodoConnect = connect(
   null,
