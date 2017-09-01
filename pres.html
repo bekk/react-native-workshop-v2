@@ -755,6 +755,34 @@ git checkout 5-maps-setup
 ## Oppgavetekster ligger under /tasks, løsningsforslag under /solutions
 
 
+---
+# Ruter API
+
+* Åpent API med data om stopp, avganger, sykkelparkering etc.
+* https://reisapi.ruter.no
+* Naturlig å visualisere mye av dette på et kart.
+
+--
+
+## API-er som kan være lurt å se på:
+
+```
+GET Place/GetStopsByArea/
+GET StopVisit/GetDepartures/
+```
+
+* Merk: APIet returnerer koordinater i UTM33 format mens MapView bruker lat/long
+  * Bruk geoutils.js til å konvertere
+
+---
+# Oppgaver
+```
+git checkout 6-ruter-api
+```
+
+## Oppgavetekster ligger under /tasks, løsningsforslag under /solutions (her må du erstatte hele src mappen)
+
+
     </textarea>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js">
 </script>
