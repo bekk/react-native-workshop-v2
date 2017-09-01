@@ -1,5 +1,9 @@
 # Navigere
 
+```
+git checkout 4-navigation
+```
+
 I denne oppgaven skal vi se på hvordan vi kan navigerer mellom flere skjermer/komponenter.
 
 ## Oppsett
