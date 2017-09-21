@@ -20,7 +20,7 @@ Husk at å kjøre et React Native prosjekt har to komponenter; en packager og en
 
 Innenfra prosjekt mappen kan du starte React Native packager med `npm start`(dette er egentlig et alias for `node node_modules/react-native/local-cli/cli.js start`)
 
-For å starte iOS simulatoren med uten å åpne Xcode med `react-native-cli run-ios`
+For å starte iOS simulatoren med uten å åpne Xcode med `react-native run-ios`
 
 
 ## Din oppgave
